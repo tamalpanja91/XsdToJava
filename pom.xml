@@ -63,7 +63,7 @@
                         <configuration>
                             <xsdOptions>
                                 <xsdOption>
-                                    <xsd>${basedir}/src/main/xsd/sample.xsd</xsd>
+                                    <xsd>${basedir}/src/main/xsd/DoorgroupSchema_03_13_2023.xsd</xsd>
                                     <packagename>com.tamal.com</packagename>
                                 </xsdOption>
                             </xsdOptions>

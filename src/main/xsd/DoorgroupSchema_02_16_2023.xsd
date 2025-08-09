@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://dotservice.doorgroup.com/Types"
+	xmlns:tns="http://dotservice.doorgroup.com/Types">
+	<!-- edited with his own tools (http://www.microsoft.com) by Marty Goepel 
+		(ASSA ABLOY) -->
+	<xs:element name="Order">
+		<xs:annotation>
+			<xs:documentation>Order information (root element)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1"
+					name="HeaderInformation">
+					<xs:annotation>
+						<xs:documentation>Order Header Information</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="1" minOccurs="1"
+								name="Manufacturer" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Ceco, Curries, Fleming, etc.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="OrderGeneratedFully"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="OrderCompletionInEDGE"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="PriceBook"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="MfgLocation"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Manufacturer Use Only: Used to specify
+										Service Center or Service Center orders</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="SCBranch"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Service Center Branch ID for AASC customer
+										orders</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="1" minOccurs="1"
+								name="MeasurementSystem">
+								<xs:annotation>
+									<xs:documentation>If none specified, Default = Imperial
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Imperial" />
+										<xs:enumeration value="Metric" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="EDGEProjectID" type="xs:string" />
+							<xs:element name="CustomerNumber" type="xs:string" />
+							<xs:element minOccurs="0" name="POnumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="CustPOnumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="BrandQuoteNum"
+								type="xs:string" />
+							<xs:element form="qualified" minOccurs="0"
+								name="QuoteNumber">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="QuotePrefix"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="QuoteNum"
+											type="xs:integer" />
+										<xs:element minOccurs="0" name="QuoteRevision"
+											type="xs:integer" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="ProjectInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="MasterProjID"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="MasterProjName"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectName"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectDesc"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectAddress"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectCity"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectState"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectZip"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProjectCountry"
+											type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="1" minOccurs="1"
+								name="ProjectTransferSequenceNumber" type="xs:positiveInteger" />
+							<xs:element minOccurs="0" name="RequiredDate"
+								type="xs:date" />
+							<xs:element minOccurs="0" name="EstimatedDate"
+								type="xs:date" />
+							<xs:element minOccurs="0" name="SalesInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="CustomerPo"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProgramType"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="CustomerName"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="CustomerNumber"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="QuoteNumber"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="FrameUnits"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="FrameLines"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="DoorUnits"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="DoorLines"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="StockUnits"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="StockLines"
+											type="xs:string" />
+
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+
+							<xs:element minOccurs="0" name="SoldToInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="SoldToName"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SoldToAddress1"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SoldToCity"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SoldToState"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SoldToZip"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SoldToCountry"
+											type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="2" minOccurs="0"
+								name="BillToInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="BillToName" type="xs:string" />
+										<xs:element minOccurs="0" name="BillToPhone"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="BillToEmail"
+											type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="ShippingInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="ShippingName"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingAddress1"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingAddress2"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingAddress3"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingCity"
+											type="xs:string" />
+										<xs:element minOccurs="0"
+											name="ShippingProvinceState" type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingZip"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShippingCountry"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShipToJobsite"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="AttentionTo"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShipToNotice"
+											type="xs:string" />
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="SHContactInfo">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="SHContactName"
+														type="xs:string" />
+													<xs:element minOccurs="0"
+														name="SHContactPhoneNumber" type="xs:string" />
+													<xs:element minOccurs="0" name="SHContactEmail"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="ShipVia"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ShipViaCode"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Carrier"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="PrepaidCollect"
+											type="xs:string" />
+										<xs:element minOccurs="0"
+											name="ShippingInstruction" type="xs:string" />
+										<xs:element minOccurs="0" name="TransferShipment">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="TSType">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:length value="1" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="TransferPoint">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="7" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0"
+														name="TransferPointDesc">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="60" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="TSShipVia">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="30" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="TSCarrier">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="5" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ContactInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ContactName" type="xs:string" />
+										<xs:element minOccurs="0" name="ContactPhone"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ContactEmail"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ContactFax"
+											type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="BuyOutInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="BuyOutOrderNo"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="BuyOutLocation"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="BuyOutHeaderType"
+											type="xs:string" />
+											<xs:element minOccurs="0" name="EDGEProjectID"
+											type="xs:string" />
+											</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="Notifications">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="EmailAddress"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Category"
+											type="xs:string" />
+											</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0"
+								name="AttachmentInfo">
+								<xs:annotation>
+									<xs:documentation>PDF Order Cover Sheet Recommended
+									</xs:documentation>
+									<xs:documentation>PDF of Original Order Required
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AttachmentID" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Attachment File Name and extension
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="AttachmentRef"
+											type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Fax Reference Name</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0"
+											name="NumberofAttachments" type="xs:positiveInteger">
+											<xs:annotation>
+												<xs:documentation>Number of Faxed Attachments
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="AttachmentFile"
+											type="xs:base64Binary">
+											<xs:annotation>
+												<xs:documentation>Base 64 Encoded attachment (PDF, Word,
+													Excel, JPG, GIF, TIF)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="RefOrderNo"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Manufacturer Use Only</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="OrderNo"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Manufacturer Use Only</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="JdeOrderNo"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>JDE order number when used with AASC
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ProgramType" type="xs:string" />
+							<xs:element minOccurs="0" name="ProgramTypeDesc"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="ProgramCategory"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="GeneralNotes"
+								type="xs:string">
+								<xs:annotation>
+									<xs:documentation>General Notes should be included on Order
+										Cover Page and/or Order Form</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="TotalDoorQty"
+								type="xs:positiveInteger" />
+							<xs:element minOccurs="0" name="TotalFrameQty"
+								type="xs:positiveInteger" />
+							<xs:element minOccurs="0" name="PreTaxTotal">
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="9" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="HeaderTotalPrice">
+								<xs:annotation>
+									<xs:documentation>Manufacturer Use Only</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="9" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="HeaderDiscount">
+								<xs:annotation>
+									<xs:documentation>Manufacturer Use Only</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="9" />
+										<xs:fractionDigits value="4" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="SalesTax">
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="7" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="PrintRoute"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="Action"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="SenderName"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="SenderUserName"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="SenderEmail"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="SenderPhone"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="Category"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="RemakeCode"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="OriginalOrder"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="OriginalShipYear"
+								type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="OrderLine">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Brand"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="LineGeneratedFully"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="Plant-Whse"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="ShipDate"
+								type="xs:string" />
+							<xs:element name="ProductType" type="xs:string" />
+							<xs:element name="LineNumber"
+								type="xs:positiveInteger" />
+							<xs:element minOccurs="0" name="JDELineNumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="POLineNumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="PartNumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="CusPartNumber"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="PartDescription"
+								type="xs:string" />
+							<xs:element name="Quantity" type="xs:positiveInteger" />
+							<xs:element maxOccurs="unbounded" minOccurs="0"
+								name="MarkNumber">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="MarkID"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Qty"
+											type="xs:nonNegativeInteger" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="Weight"
+								type="xs:positiveInteger">
+								<xs:annotation>
+									<xs:documentation>Manufacturer use only</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="UnitPrice">
+								<xs:annotation>
+									<xs:documentation>Manufacturer use only</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="7" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="UnitNetPrice">
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="7" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="LinePrice">
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="7" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element minOccurs="0" name="LineDiscount">
+								<xs:simpleType>
+									<xs:restriction base="xs:decimal">
+										<xs:totalDigits value="7" />
+										<xs:fractionDigits value="2" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+
+							<xs:element minOccurs="0" name="Drawings">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="DrawingVersion">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:maxLength value="10" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="DrawingElevation">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="ElevName">
+														<xs:annotation>
+															<xs:documentation>Elevation Name and file extension
+															</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="10" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="ElevData"
+														type="xs:base64Binary">
+														<xs:annotation>
+															<xs:documentation>PRO-TECH/Manufacturer Use Only
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="ElevImage"
+														type="xs:base64Binary">
+														<xs:annotation>
+															<xs:documentation>Base 64 Encoded attachment (PDF, Word,
+																Excel, JPG, GIF, TIF)</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="ElevCrossSection">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="XsecName">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:maxLength value="10" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0" name="XsecData"
+																	type="xs:base64Binary">
+																	<xs:annotation>
+																		<xs:documentation>PRO-TECH/Manufacturer Use Only
+																		</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element minOccurs="0" name="XsecImage"
+																	type="xs:base64Binary" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OrderLineData">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="FrameDescription"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Profile"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ProfileOption"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="HeadFace"
+											type="xs:string" />
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="CrossSection">
+											<xs:annotation>
+												<xs:documentation>Profile/Cross Section</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CSName"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Required when CrossSection specified -
+																Unique Cross-Section/Profile Reference Name
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CSProfile"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Required when CrossSection specified -
+																Cross Section Code/Profile Code</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CSJambDepth">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CSThroat">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CSLength">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="CSSurface">
+														<xs:annotation>
+															<xs:documentation>Unique Cross Section/Profile dimensions
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="CSElement"
+																	type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Unique Cross Section/Profile element
+																		</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element minOccurs="0" name="CSDimension">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="CSDimensionText" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="JambDepth">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Throat">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="CornerConstruction"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="CCWNumber"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="CCWLength">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="OverallWidth">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="OverallHeight">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Width">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Height">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="FrameAnchorInfo">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="Member"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AnchorCode"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AnchorType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AnchorClass"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AnchorSize">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="AnchorQty"
+														type="xs:positiveInteger" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														ref="tns:SpecialLocation" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="FrameComponents">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CompSeries"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompDescription"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CrossSection"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompMemberCode"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompQty"
+														type="xs:positiveInteger" />
+													<xs:element minOccurs="0" name="LabelLocation"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompGauge"
+														type="xs:positiveInteger" />
+													<xs:element minOccurs="0" name="CompMaterial"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CompLength">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CompDoorHeight">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CompOpeningType"
+														type="xs:string" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														ref="tns:Prep" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="CompCornerConstruction" type="xs:string" />
+													<xs:element minOccurs="0" name="WeldToMember1"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="WeldToMember2"
+														type="xs:string" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="CompAnchorInfo">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="AnchorCode"
+																	type="xs:string" />
+																<xs:element minOccurs="0" name="AnchorType"
+																	type="xs:string" />
+																<xs:element minOccurs="0" name="AnchorClass"
+																	type="xs:string" />
+																<xs:element minOccurs="0"
+																	name="LooseAnchorFlag" type="xs:string" />
+																<xs:element minOccurs="0" name="CrossSection">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element minOccurs="0" name="CSName"
+																				type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>Cross Section/Profile name as
+																						defined in CrossSection</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element minOccurs="0" name="AnchorSize">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0" name="AnchorQty"
+																	type="xs:positiveInteger" />
+																<xs:element maxOccurs="unbounded"
+																	minOccurs="0" ref="tns:SpecialLocation" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CompSilencer"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="GlassStop">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="InstallFlag"
+																	type="xs:string" />
+																<xs:element minOccurs="0"
+																	name="HoldPocketFlag" type="xs:string" />
+																<xs:element minOccurs="0" name="PaintedFlag"
+																	type="xs:string" />
+																<xs:element minOccurs="0" name="PunchFlag"
+																	type="xs:string" />
+																<xs:element minOccurs="0" name="PocketSize">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="SpecialFlags">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0"
+														name="NoCompressionAnchorFlag" type="xs:string" />
+													<xs:element minOccurs="0"
+														name="NoReverseWeldFlag" type="xs:string" />
+													<xs:element minOccurs="0"
+														name="NoCornerClipFlag" type="xs:string" />
+													<xs:element minOccurs="0" name="NoFootClipFlag"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="EqualRabbetFlag"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="NoCloserFlag"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="ExtraAnchorFlag"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="DutchFlag"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="SilencerFlag"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ActiveLeafFlag"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="ActiveLeafWidth">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Series"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="DrCore"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="DrFaceType"
+											type="xs:string" />
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="DrCutout">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CutoutType"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Cutout Only or Install
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="Height">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="Width">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="LiteStyle"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="WindowKitType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="LouverType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CutoutSurround"
+														type="xs:string">
+													</xs:element>
+													<xs:element minOccurs="0"
+														name="WindowPocketSize">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0"
+														name="WindowStopHeight">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="WindowFixedSide"
+														type="xs:string" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														ref="tns:SpecialLocation" />
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="Glazing">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="GlassType"
+																	type="xs:string" />
+																<xs:element minOccurs="0"
+																	name="ExteriorDoorFlag" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="DrSize">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element minOccurs="0" name="DrNominalSize">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0"
+																	name="DrNominalWidth">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="DrNominalHeight">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="DrBottomUndercut">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="DrBottomUndercutText" type="xs:string" />
+																<xs:element minOccurs="0"
+																	name="DrTopClearance">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="DrHingeClearance">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0"
+																	name="DrLockClearance">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element minOccurs="0" name="DrNetSize">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="DrNetWidth">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element minOccurs="0" name="DrNetHeight">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:decimal">
+																			<xs:totalDigits value="9" />
+																			<xs:fractionDigits value="4" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:choice>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="DoorThickness">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Bevel"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="DrEdge"
+											type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Door Edge Finish</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0" name="Dutch">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="TopLeafHt">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="BottomLeafHt">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="Clearance">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="ShelfType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="ShelfThk">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="ShelfDepth">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Wicket">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CallWidth">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CallHt">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CallHand"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CallShelfType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="CallShelfthk">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="CallRabbet"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="HingeRailGauge"
+											type="xs:positiveInteger" />
+										<xs:element minOccurs="0" name="LockRailGauge"
+											type="xs:positiveInteger" />
+										<xs:element minOccurs="0" name="Astragal">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="AstragalCode"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AstragalEdge"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AstragalStyle"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AstragalDWG"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="EndCap">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="CapLocation"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Location reference on door
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CapGauge"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>End Cap Gauge</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CapApply"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Application: Screw, Weld, etc.
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CapMaterial"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Material Type</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CapFill"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Fill, caulk, etc.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="CapProfile"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Channeled, Flush, Omit
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="TopCapCode"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="BottomCapCode"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="OpeningType"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Labeling">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="LabelAuthority"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="LabelRating"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="LabelType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="Sidelight">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="GlassFlag"
+																	type="xs:string" />
+																<xs:element minOccurs="0" name="PanelFlag"
+																	type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element maxOccurs="unbounded" minOccurs="0"
+														name="Certifications">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0"
+																	name="CertificationName" type="xs:string" />
+																<xs:element minOccurs="0"
+																	name="CertificationValue" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="STCRating"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Gauge"
+											type="xs:positiveInteger" />
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="Material">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="MaterialType"
+														type="xs:string" />
+													<xs:element minOccurs="0"
+														name="MaterialLocation" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Example: Outside FRP Door skin or
+																perimeter</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="MatchBothSides"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Example: Interior FRP Doors, True -
+																Match Inside and Outside colors</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="MaterialTexture"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Example: FRP Door skin texture/finish
+															</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="MaterialRating"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Example: FRP Door material skin flame
+																spread rating, A or C</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element minOccurs="0" name="MaterialColor"
+														type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Examples: FRP Door skin color, or
+																aluminum perimeter anodized color, Aluminum frame
+																anodized color</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Hand"
+											type="xs:string" />
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											ref="tns:Prep" />
+										<xs:element minOccurs="0" name="LeadThickness">
+											<xs:simpleType>
+												<xs:restriction base="xs:decimal">
+													<xs:totalDigits value="9" />
+													<xs:fractionDigits value="4" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="HPL"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Paint">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="PaintCode"
+														type="xs:string" />
+													<xs:element minOccurs="0"
+														name="PaintDescription" type="xs:string" />
+													<xs:element minOccurs="0" name="PaintAdditive"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="InstallHdw">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="1" minOccurs="0"
+														name="HdwQty" type="xs:positiveInteger" />
+													<xs:element maxOccurs="1" minOccurs="0"
+														name="HdwType" type="xs:string" />
+													<xs:element maxOccurs="1" minOccurs="0"
+														name="HdwDesc" type="xs:string" />
+													<xs:element maxOccurs="1" minOccurs="0"
+														name="HdwPart" type="xs:string" />
+													<xs:element maxOccurs="1" minOccurs="0"
+														name="HdwInstallLoc" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Manufacturer Use Only - Installation
+																Location/Factory/Warehouse/Customer</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="Packaging"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="BundleCode"
+											type="xs:string" />
+										<xs:element minOccurs="0" name="Elevation"
+											type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Elevation ID reference</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element minOccurs="0"
+											name="AdditionalInformation">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0"
+														name="SpecialInformation" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="ElevationPowerFlag"
+											type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Manufacturer Use Only</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="Accessories">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element minOccurs="0" name="AccInstalled"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AccPartNo"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AccQty"
+														type="xs:positiveInteger" />
+													<xs:element minOccurs="0" name="AccType"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AccDesc"
+														type="xs:string" />
+													<xs:element minOccurs="0" name="AccThickness">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="AccWidth">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element minOccurs="0" name="AccHeight">
+														<xs:simpleType>
+															<xs:restriction base="xs:decimal">
+																<xs:totalDigits value="9" />
+																<xs:fractionDigits value="4" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="ReturnError"
+								type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="XMLversion" type="xs:string"
+				use="required">
+				<xs:annotation>
+					<xs:documentation>Example: DoorgroupSchema_6-08-2018.xsd
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="PrintOverideFlag" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Manufacturer Use Only</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="TransferSequenceNumber"
+				type="xs:integer" use="required">
+				<xs:annotation>
+					<xs:documentation>Sender transfer serial number</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="SoftwareName" type="xs:string"
+				use="required">
+				<xs:annotation>
+					<xs:documentation>Sender software name</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="SoftwareVersion" type="xs:string"
+				use="required">
+				<xs:annotation>
+					<xs:documentation>Sender software version</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecialLocation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="From" type="xs:string" />
+				<xs:element minOccurs="0" name="To" type="xs:string" />
+				<xs:element minOccurs="0" name="Dimension">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="9" />
+							<xs:fractionDigits value="4" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Prep">
+		<!--See Company for Minimum and Maximum Occurrences by PrepType -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="PrepCategory"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepType"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepOrderCode"
+					type="xs:string" />
+				<xs:choice>
+					<xs:element minOccurs="0" name="PrepSDILocation"
+						type="xs:string" />
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						ref="tns:SpecialLocation" />
+				</xs:choice>
+				<xs:element minOccurs="0" name="PrepManufacturer"
+					type="xs:string" />
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="PrepElectric">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="0" name="TopDownHingeNumber"
+								type="xs:positiveInteger" />
+							<xs:element minOccurs="0" name="ConnectionType"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="WireType"
+								type="xs:string" />
+							<xs:element minOccurs="0" name="Routing">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="RouteTo" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="Elevation"
+								type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="PrepHeight">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="9" />
+							<xs:fractionDigits value="4" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="PrepHingeWeight"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepModel"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepSeries"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepFunction"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepTrim"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepBackset">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="9" />
+							<xs:fractionDigits value="4" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="PrepStrike"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepQty"
+					type="xs:positiveInteger" />
+				<xs:element minOccurs="0" name="PrepDeadlockFlag"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepLeafFlag"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepMullion"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepHand"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepDoorThickness">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:totalDigits value="9" />
+							<xs:fractionDigits value="4" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="PrepDegOfOpening"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepCSSurface"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepDrillAndTapFlag"
+					type="xs:string" />
+				<xs:element minOccurs="0" name="PrepInstallHdwFlag"
+					type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
